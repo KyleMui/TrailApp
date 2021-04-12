@@ -1,0 +1,43 @@
+@model IEnumerable<Packt.Shared.ParkTable>
+@{
+ ViewData["Title"] =
+ "Trails Available with a width of" + ViewData["AllTrails"] + "Feet";
+}
+<h2>Trails Available with a width of @ViewData["AllTrails"] Feet</h2>
+<table class="table">
+ <tr>
+ <th>Trail ID</th>
+ <th>Park Name</th>
+ <th>Width (ft)</th>
+ <th>Class</th>
+ <th>Surface</th>
+ <th>Gen_Topog</th>
+ <th>Difficulty Level</th>
+ </tr>
+ @foreach (var item in Model)
+ {
+ <tr>
+ <td>
+ @Html.DisplayFor(modelItem => item.TrailID)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Park_Name)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Width_ft)
+ </td>
+  <td>
+ @Html.DisplayFor(modelItem => item.Class)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Surface)
+ </td>
+  <td>
+ @Html.DisplayFor(modelItem => item.Gen_Topog)
+ </td>
+  <td>
+ @Html.DisplayFor(modelItem => item.Difficulty)
+ </td>
+ </tr>
+ }
+</table>

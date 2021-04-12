@@ -1,0 +1,24 @@
+@model Packt.Shared.ParkTable
+@{
+ ViewData["Title"] = "Trail Details - " + Model.Park_Name;
+}
+<h2>Trail Details</h2>
+<hr />
+<div>
+ <dl class="dl-horizontal">
+ <dt>Trail ID</dt>
+ <dd>@Model.TrailID</dd>
+ <dt>Park Name</dt>
+ <dd>@Model.Park_Name</dd>
+ <dt>Width (ft)</dt>
+ <dd>@Model.Width_ft</dd>
+ <dt>Class</dt>
+ <dd>@Model.Class</dd>
+ <dt>Surface</dt>
+ <dd>@Model.Surface</dd>
+ <dt>Gen Topog</dt>
+ <dd>@Model.Gen_Topog</dd>
+ <dt>Difficulty Level</dt>
+ <dd>@Model.Difficulty</dd>
+ </dl>
+</div>

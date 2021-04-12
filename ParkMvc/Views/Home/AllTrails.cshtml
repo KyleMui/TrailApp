@@ -1,0 +1,26 @@
+@model ParkMvc.Models.HomeIndexViewModel
+@{
+    ViewData["Title"] = "List of Trails";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>This is our list of trails and their corresponding park. Click on one to find out more!</p>
+
+<div class="row">
+ <div class="col-md-12">
+ <div id="newspaper">
+ <ul>
+@foreach (var item in @Model.Parks)
+ {
+ <li>
+ <a asp-controller="Home" 
+ asp-action="TrailDetail" 
+ asp-route-id="@item.TrailID">
+ Trail @item.TrailID
+ in @item.Park_Name
+ </a>
+ </li>
+ }
+ </ul>
+ </div>
+ </div>

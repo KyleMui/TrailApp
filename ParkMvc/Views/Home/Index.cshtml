@@ -1,0 +1,73 @@
+﻿@model ParkMvc.Models.HomeIndexViewModel
+@{
+ ViewData["Title"] = "Home Page";
+ string currentItem = "";
+ List<int> parkCycle = new List<int>() {0, 1530, 519, 546, 762, 1042};
+}
+<div id="park" class="carousel slide" data-ride="carousel" data-interval="3000" data-keyboard="true">
+ <ol class="carousel-indicators">
+ @foreach (int c in parkCycle)
+ {
+ if (c == 0) {
+ currentItem = "active";
+ } else {
+ currentItem = "";
+ }
+ <li data-target="#park" data-slide-to="@c" class="@currentItem"></li>
+ }
+ </ol>
+ <div class="carousel-inner">
+ @foreach (int c in parkCycle) {
+ if (c == 0) {
+ currentItem = "active";
+ } else {
+ currentItem = "";
+ }
+ <div class="carousel-item @currentItem">
+ <img class="d-block w-100" src= "~/images/Parks@(Model.Parks[c].TrailID).jpeg" alt="@Model.Parks[c].Park_Name" />
+ <div class="carousel-caption d-none d-md-block">
+ <h2>@Model.Parks[c].Park_Name</h2>
+ <p>
+     <a class="btn btn-primary" href="/Home/TrailsFromPark?park=@Model.Parks[c].Park_Name">View</a>
+ </p>
+ </div>
+ </div>
+ }
+ </div>
+ <a class="carousel-control-prev" href="#Parks"  role="button" data-slide="prev">
+ <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+ <span class="sr-only">Previous</span>
+ </a>
+ <a class="carousel-control-next" href="#Parks" role="button" data-slide="next">
+ <span class="carousel-control-next-icon" aria-hidden="true"></span>
+ <span class="sr-only">Next</span>
+ </a>
+</div>
+ <h2>Check out some of the parks below</h2>
+<style>
+.button {
+    border-radius: 5px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 12.5px;
+    color: #FFFFFF;
+    border: 5px;
+    height: 50px;
+    width: 145px;
+    background-color: #2e856e;
+}
+</style>
+<button class = "button" onclick="window.location.href='/Home/TrailsFromPark?park=Alley+Pond+Park';">Alley Pond Park</button>
+
+<button class = "button" onclick="window.location.href='/Home/TrailsFromPark?park=Cunningham+Park';">Cunningham Park</button>
+
+<button class = "button" onclick="window.location.href='/Home/TrailsFromPark?park=Pelham+Bay+Park';">Pelham Bay Park</button>
+
+<button class = "button" onclick="window.location.href='/Home/TrailsFromPark?park=Bronx+Park';">Bronx Park</button>
+
+<button class = "button" onclick="window.location.href='/Home/TrailsFromPark?park=Van+Cortlandt+Park';">Van Cortlandt Park</button>
+
+<button class = "button" onclick="window.location.href='/Home/TrailsFromPark?park=Forest+Park';">Forest Park</button>
+ </ul>
+ </div>
+ </div>
+</div>

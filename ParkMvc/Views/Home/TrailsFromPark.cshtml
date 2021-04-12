@@ -1,0 +1,72 @@
+@model IEnumerable<Packt.Shared.ParkTable>
+@{
+ ViewData["Title"] =
+ "Trails Available in " + ViewData["AllTrails"];
+}
+<h2>Trails Available in @ViewData["AllTrails"]</h2>
+@if(ViewData["AllTrails"].Equals("Alley Pond Park"))
+{
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12090.95024300213!2d-73.7527831184545!3d40.745799926058815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3085b63551f7fe30!2sAlley%20Pond%20Park!5e0!3m2!1sen!2sus!4v1618196288975!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+}
+
+@if(ViewData["AllTrails"].Equals("Cunningham Park"))
+{
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5084.971115099614!2d-73.77704040897731!3d40.728099723322025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c26199d9188db3%3A0xc11bdfe5b04a442a!2sCunningham%20Park!5e0!3m2!1sen!2sus!4v1618196402739!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+}
+
+@if(ViewData["AllTrails"].Equals("Pelham Bay Park"))
+{
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20298.386486931573!2d-73.8213046998105!3d40.86368335729857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x704417deef1cf8e3!2sPelham%20Bay%20Park!5e0!3m2!1sen!2sus!4v1618196613145!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+}
+
+@if(ViewData["AllTrails"].Equals("Bronx Park"))
+{
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17069.298974730984!2d-73.8802194341802!3d40.86190413411974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1cbdc4dd99475e3a!2sBronx%20Park!5e0!3m2!1sen!2sus!4v1618196669798!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+}
+
+@if(ViewData["AllTrails"].Equals("Van Cortlandt Park"))
+{
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.504573922746!2d-73.8892604968091!3d40.88961858509926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb2cc825094561101!2sVan%20Cortlandt%20Park!5e0!3m2!1sen!2sus!4v1618196707078!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+}
+
+@if(ViewData["AllTrails"].Equals("Forest Park"))
+{
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12099.061769057991!2d-73.86273489187984!3d40.70116322203819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e05e9df5859%3A0xd843143f5b8c4d0e!2sForest%20Park%2C%20Queens%2C%20NY!5e0!3m2!1sen!2sus!4v1618196770120!5m2!1sen!2sus" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+}
+<table class="table">
+ <tr>
+ <th>Trail ID</th>
+ <th>Park Name</th>
+ <th>Width (ft)</th>
+ <th>Class</th>
+ <th>Surface</th>
+ <th>Gen_Topog</th>
+ <th>Difficulty Level</th>
+ </tr>
+ @foreach (var item in Model)
+ {
+ <tr>
+ <td>
+ @Html.DisplayFor(modelItem => item.TrailID)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Park_Name)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Width_ft)
+ </td>
+  <td>
+ @Html.DisplayFor(modelItem => item.Class)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.Surface)
+ </td>
+  <td>
+ @Html.DisplayFor(modelItem => item.Gen_Topog)
+ </td>
+  <td>
+ @Html.DisplayFor(modelItem => item.Difficulty)
+ </td>
+ </tr>
+ }
+</table>
