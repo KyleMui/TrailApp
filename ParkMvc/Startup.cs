@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
 using Packt.Shared;
-hello
+
 namespace ParkMvc
 {
     public class Startup
