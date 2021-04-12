@@ -1,9 +1,9 @@
 @model IEnumerable<Packt.Shared.ParkTable>
 @{
  ViewData["Title"] =
- "Trails Available with a Surface of " + ViewData["AllTrails"];
+ "Trails Available with a " + ViewData["AllTrails"] + "Surface";
 }
-<h2>Trails Available with a Surface of @ViewData["AllTrails"]</h2>
+<h2>Trails Available with a @ViewData["AllTrails"] Surface</h2>
 <table class="table">
  <tr>
  <th>Trail ID</th>
